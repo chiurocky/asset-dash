@@ -202,6 +202,7 @@ body {
     gap: 1.75rem;
 
     overflow: visible;
+    position: relative;
 
     & p {
         font-family: var(--font-mono);
@@ -209,6 +210,26 @@ body {
         font-weight: 300;
         color: var(--text-primary);
         animation: tickerTape 200s linear infinite;
+    }
+}
+
+.icon-container {
+    position: absolute;
+    background: var(--surface-primary);
+    width: 60px;
+    height:60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+
+    .rc-icon {
+        margin-left: .65rem;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        z-index: 3;
+        cursor: pointer;
     }
 }
 

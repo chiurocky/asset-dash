@@ -120,6 +120,14 @@ function addGlobalEventListener(type, selector, callback) {
     });
 }
 
-addGlobalEventListener("click", ".asset-card", (e) => {
-    console.log(this);
+addGlobalEventListener("click", ".rc-icon", (e) => {
+    if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark');
+        document.body.classList.add('light');
+    } else {
+        document.body.classList.add('dark');
+        document.body.classList.remove('light');
+    }
 });
+
+
