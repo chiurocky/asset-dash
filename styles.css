@@ -1,0 +1,224 @@
+:root {
+    --font-primary: "adso", helvetica, arial, sans-serif;
+    --font-secondary: "Inter", helvetica, arial, sans-serif;
+    --font-mono: "IBM Plex Mono", helvetica, arial, sans-serif;
+
+    --grey-0: #ffffff;
+    --grey-1: #f7f7f7;
+    --grey-2: #e6e6e6;
+    --grey-3: #d2d2d2;
+    --grey-4: #969696;
+    --grey-5: #7d7d7d;
+    --grey-6: #484848;
+    --grey-7: #191919;
+    --grey-8: #131313;
+    --grey-9: #000000;
+
+    --green-default: rgb(29, 165, 29);
+    --red-default: rgb(216, 36, 36);
+    --yellow-default: yellow;
+    --blue-mellow: rgb(0, 106, 255);
+}
+
+::selection {
+    color: #962828;
+    background: #f7bc1b;
+}
+
+.light {
+    --surface-primary: var(--grey-0);
+    --surface-secondary: var(--grey-1);
+    --surface-tetiary: var(--grey-2);
+    --surface-invert: var(--grey-9);
+
+    --text-primary: var(--grey-9);
+    --text-secondary: var(--grey-6);
+    --text-tetiary: var(--grey-4);
+    --text-invert: var(--grey-0);
+
+    --border-primary: var(--grey-2);
+    ;
+    --border-secondary: var(--grey-3);
+
+    --brand-positive: var(--green-default);
+    --brand-negative: var(--red-default);
+    --brand-alert: var(--yellow-default);
+    --brand-focus: var(--blue-mellow);
+
+    transition: all 500ms ease;
+}
+
+.dark {
+    --surface-primary: var(--grey-9);
+    --surface-secondary: var(--grey-8);
+    --surface-tetiary: var(--grey-7);
+    --surface-invert: var(--grey-0);
+
+    --text-primary: var(--grey-3);
+    --text-secondary: var(--grey-4);
+    --text-tetiary: var(--grey-5);
+    --text-invert: var(--grey-9);
+
+    --border-primary: var(--grey-8);
+    --border-secondary: var(--grey-7);
+
+    --brand-positive: var(--green-default);
+    --brand-negative: var(--red-default);
+    --brand-alert: var(--yellow-default);
+    --brand-focus: var(--blue-mellow);
+
+    transition: all 500ms ease;
+}
+
+.terminal {
+    --surface-primary: rgb(9, 9, 9);
+    --surface-secondary: rgb(22, 24, 22);
+    --surface-tetiary: rgb(21, 23, 21);
+    --surface-invert: var(--grey-0);
+
+    --text-primary: rgb(31, 197, 31);
+    --text-secondary: rgb(64, 144, 64);
+    --text-tetiary: rgb(54, 110, 54);
+    --text-invert: rgb(17, 18, 17);
+
+    --border-primary: rgb(33, 42, 33);
+    --border-secondary: rgb(40, 45, 40);
+
+    --brand-positive: rgb(233, 255, 233);
+    --brand-negative: rgb(245, 255, 109);
+    --brand-alert: yellow;
+    --brand-focus: blue;
+
+    transition: all 500ms ease;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+p {
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-secondary);
+    color: var(--text-primary);
+}
+
+body {
+    background-color: var(--surface-secondary);
+    color: var(--text-primary);
+    width: 100vw;
+}
+
+.cards-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    padding: .5rem;
+    gap: .5rem;
+}
+
+/* ASSET CARDS */
+
+.asset-card {
+    background-color: var(--surface-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: .5rem;
+    padding: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.asset-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .asset-img {
+        width: 30px;
+        height: 30px;
+        display: block;
+        margin-right: 1rem;
+    }
+
+    .asset-name-sym {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
+        margin-right: auto;
+    }
+}
+
+.asset-currentPerf {
+    font-size: 2rem;
+
+    .asset-price-chg,
+    .asset-price-chgPer {
+        display: inline-block;
+        font-size: 1.25rem;
+    }
+}
+
+/* UTILITY CLASSES */
+
+.mono {
+    font-family: var(--font-mono);
+}
+
+.long {
+    color: var(--brand-positive);
+}
+
+.short {
+    color: var(--brand-negative);
+}
+
+.alert {
+    color: var(--brand-alert);
+}
+
+.focus {
+    color: var(--brand-focus);
+}
+
+/* TICKER */
+
+.ticker {
+    width: 100%;
+    height: 60px;
+    background: var(--surface-primary);
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.75rem;
+
+    overflow: visible;
+
+    & p {
+        font-family: var(--font-mono);
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: var(--text-primary);
+        animation: tickerTape 200s linear infinite;
+    }
+}
+
+
+@keyframes tickerTape {
+    0% {
+        transform: translateX(100vw)
+    }
+
+    100% {
+        transform: translateX(-200vw)
+    }
+}
