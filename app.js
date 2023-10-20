@@ -39,6 +39,11 @@ function renderUI() {
         </div>
         `;
 
+        assetCard.addEventListener('click', (e) => {
+            const name = asset.name.toLowerCase().replace(/\s/g, "-");
+            window.open(`https://www.coingecko.com/en/coins/${name}`, '_blank').focus();
+        })
+
         assetTicker.innerText = `${asset.symbol.toUpperCase()} ${_.round(asset.price_change_percentage_24h * 100, 2)}`;
 
         wall.append(assetCard);
@@ -67,7 +72,7 @@ function renderPerfUI() {
             price.nextElementSibling.innerText = posPricePer;
         }
     })
-    vanillaTiltInit('.asset-card');
+    // vanillaTiltInit('.asset-card');
 }
 
 // function renderTicker() {
@@ -130,4 +135,12 @@ addGlobalEventListener("click", ".rc-icon", (e) => {
     }
 });
 
+// addGlobalEventListener("click", ".asset-card", (e) => {
+//     const thisAsset = e.target;
+//     const assetName = thisAsset.querySelector('.asset-name').innerText.toLowerCase();
+//     const name = assetName.replace(/\s/g, "-");
+
+//     console.log(name);
+//     window.open(`https://www.coingecko.com/en/coins/${name}`, '_blank').focus();
+// });
 
