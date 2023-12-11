@@ -1,9 +1,15 @@
 const listOfAssets = [];
+const listOfNFTs = [];
 const templateElem = document.getElementById('asset-card');
 
 async function fetchAssets() {
     await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd').then(res => res.json()).then(data => listOfAssets.push(...data));
     renderUI();
+}
+
+async function fetchNFTs() {
+    await fetch('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd').then(res => res.json()).then(data => listOfNFTs.push(...data));
+    console.log(listOfNFTs);
 }
 
 // async function updateFetch() {
